@@ -1,0 +1,28 @@
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: q1234567
+      MYSQL_DATABASE: login_app
+    volumes:
+      - ./server/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-pq1234567"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  web:
+    build: .
+    ports:
+      - "8080:3000"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: q1234567
+      DB_NAME: login_app
+      DB_PORT: 3306
+      PORT: 3000
+    depends_on:
+      db:
+        condition: service_healthy
