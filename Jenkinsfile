@@ -14,7 +14,7 @@ pipeline {
         }
         stage('run') {
             steps{
-                sh 'docker rm -rf pensive_blackburn'
+                sh 'docker rm -f pensive_blackburn'
                 sh 'docker run -d --name pensive_blackburn --network my_project_default  -e DB_HOST=db -e DB_USER=root -e DB_PASSWORD=q1234567 -e DB_NAME=login_app -e DB_PORT=3306 -e PORT=3000  -p 1122:3000 aakashgaur57/node_img'
             }
         }
