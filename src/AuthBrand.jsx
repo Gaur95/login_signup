@@ -1,7 +1,7 @@
 const AuthBrand = () => (
   <div className="auth-brand">
     <div className="brand-logo" aria-hidden="true" />
-    <h1>Getting Started With VR Creation</h1>
+    <h1>Getting Started With devops</h1>
     <div className="brand-illustration" aria-hidden="true">
       <div className="illustration-leaf" />
       <div className="illustration-glass" />

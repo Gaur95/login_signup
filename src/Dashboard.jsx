@@ -6,7 +6,7 @@ const Dashboard = ({ user, onLogout }) => {
       <header className="dashboard-header">
         <div className="dashboard-brand">
           <div className="brand-logo" aria-hidden="true" />
-          <span>VR Creation</span>
+          <span>devops</span>
         </div>
         <button type="button" className="logout-btn" onClick={onLogout}>
           Logout
