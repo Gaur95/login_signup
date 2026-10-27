@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploy
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: red
+      version: stable
+  template:
+    metadata:
+      labels:
+        app: red 
+        version: stable
+    spec:
+      containers:
+      - name: mydeploy
+        image: nginx
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "400m"   # 10% of 4 core CPU core
+            memory: "400Mi"  # % of 16 GiB
