@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: mydeploy
-        image: httpd
+        image: nginx
         ports:
         - containerPort: 80
         resources:
